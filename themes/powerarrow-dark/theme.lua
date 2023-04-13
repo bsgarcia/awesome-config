@@ -422,16 +422,28 @@ function theme.at_screen_connect(s)
 
 
     -- Create the wibox
-    s.mywibox = awful.wibar({type ="dock",  position = "top", screen = s, width = s.geometry.width - 50,
+    s.mywibox = awful.wibar({type ="dock",  position = "top", screen = s, stretch = true, margins = {left=25, right=25},   --width = s.geometry.width - 50, 
                               height = 27, bg = theme.bg_normal, fg = theme.fg_normal, shape=custom_shape})
+--
+--    s.mywibox0 = awful.wibar({visible = true, type ="dock",  position = "top", screen = s, width = s.geometry.width/19.5, stretch = false, align = "left", margins = {top = 13, left = 25},
+--                              height = 27, bg = theme.bg_normal, fg = theme.fg_normal, shape=custom_shape})
+--
+--    s.mywibox1 = awful.wibar({type ="dock",  position = "top", screen = s, width = s.geometry.width/10, stretch = false, align = "center",  margins = {top = 0},
+--                              height = 27, bg = theme.bg_normal, fg = theme.fg_normal, shape=custom_shape})
 
-	awful.placement.top(s.mywibox, { margins = 2 * 2 })
+
+
+--	awful.placement.top(s.mywibox0, { margins = 2 * 2 })
+--	awful.placement.top(s.mywibox1, { margins = 2 * 2 })
+
     -- s.mywibox.opacity = 0.9
     --s.mywibox.border_width = 15
     
    -- s.mywibox.y = -1.5
     --s.mywibox.x = s.mywibox.x - 1.5
+    --s.mywibox0.y = s.mywibox0.y + 7
     s.mywibox.y = s.mywibox.y + 7
+    --s.mywibox1.y = s.mywibox1.y - 13
     
     --s.mywibox.border_color = "#1A1A1A"--"#2F343F"
 
@@ -506,6 +518,55 @@ function theme.at_screen_connect(s)
 
         }
 }
+
+   -- s.mywibox0:setup {
+   --     layout = wibox.layout.fixed.horizontal,
+   --     {
+   --         { -- Left widgets
+   --             layout = wibox.layout.fixed.horizontal,
+   --             --widget = wibox.container.background,
+-- --               bg="#565965"
+   --             s.mytaglist,
+
+   --         },
+   --         --bg= theme.bg_normal,
+   --         --shape_border_color=theme.bg_normal,
+   --         --shape_border_width=4,
+   --         --shape = custom_shape,
+   --         layout = wibox.container.background
+   --         { -- Left widgets
+   --             layout = wibox.layout.fixed.horizontal,
+   --             --widget = wibox.container.background,
+-- --               bg="#565965"
+
+   --         },
+
+   --     },
+   -- }
+   -- s.mywibox1:setup {
+   --     layout = wiboxlayout,
+   --     {
+   --         { -- Left widgets
+   --             layout = wibox.layout.fixed.horizontal,
+   --             clock.widget,
+   --             bottom=4,
+   --             margins = {left = 15},
+   --             color=theme.fg_focus,
+   --      --       widget=wibox.container.margin,
+   --             bg= theme.bg_normal,
+   --             shape_border_color=theme.bg_normal,
+   --             shape_border_width=4,
+   --             shape = custom_shape,
+   --         },
+   --         layout = wibox.container.background
+   --         { -- Left widgets
+   --             layout = wibox.layout.fixed.horizontal,
+   --             widget = wibox.container.background,
+   --         },
+
+   --     },
+   -- }
+
 end
 
 return theme
